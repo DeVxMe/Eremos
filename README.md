@@ -1,5 +1,9 @@
 # Eremos
 
+<p align="center">
+  <img src="docs/banner2.png" alt="Eremos Banner" width="60%"/>
+</p>
+
 **Autonomous Swarm Agents for Early On-Chain Signal Detection**
 
 [![GitHub stars](https://img.shields.io/github/stars/EremosCore/Eremos?style=flat-square)](https://github.com/EremosCore/Eremos/stargazers)
@@ -9,9 +13,11 @@
 
 ---
 
-## Table of Contents
+## 📚 Table of Contents
 - [Project Overview](#project-overview)
 - [Architecture](#architecture)
+- [Swarm Agents](#swarm-agents)
+- [Signal Flow](#signal-flow)
 - [Features](#features)
 - [Example Signal](#example-signal)
 - [Signal Confidence](#signal-confidence)
@@ -24,19 +30,19 @@
 
 ---
 
-## Project Overview
+## 🚀 Project Overview
 Eremos is a lightweight, modular framework for deploying autonomous swarm agents that monitor Solana blockchain activity. Each agent specializes in tracking wallet clusters, mint patterns, and contract anomalies, providing early, low-noise signals for developers and analysts. Eremos solves the problem of high-signal, low-latency on-chain monitoring by allowing you to embed custom agents directly into your workflow.
 
 ---
 
-## Architecture
+## 🏗️ Architecture
 
 ```mermaid
 graph TD
   subgraph Swarm Agents
-    A1[Theron (memory_vault)]
-    A2[Observer (surveillance)]
-    A3[Harvester (indexing)]
+    A1[Ϸ Theron<br/><sub>memory_vault</sub>]
+    A2[Δ Observer<br/><sub>surveillance</sub>]
+    A3[λ Harvester<br/><sub>indexing</sub>]
   end
   B[Solana On-Chain Data]
   U[Shared Utilities & Types]
@@ -57,7 +63,41 @@ Agents independently monitor on-chain events, emit structured signals, and share
 
 ---
 
-## Features
+## 🤖 Swarm Agents
+
+| Agent      | Glyph | Role           | Watches           |
+|------------|:-----:|:--------------:|:-----------------:|
+| **Theron** | Ϸ     | memory_vault   | anomaly_detection |
+| **Observer** | Δ   | surveillance   | wallet_activity   |
+| **Harvester** | λ  | indexing       | mint_activity     |
+
+---
+
+## 🔄 Signal Flow
+
+```mermaid
+flowchart LR
+    B[Solana On-Chain Data]
+    subgraph Agents
+      T[Ϸ Theron]
+      O[Δ Observer]
+      H[λ Harvester]
+    end
+    style T fill:#f5f5f5,stroke:#b3b3b3
+    style O fill:#f5f5f5,stroke:#b3b3b3
+    style H fill:#f5f5f5,stroke:#b3b3b3
+    B -- Event --> T
+    B -- Event --> O
+    B -- Event --> H
+    T -- Signal --> S[Signal Output]
+    O -- Signal --> S
+    H -- Signal --> S
+    S -- Downstream --> U[User/Alert/Log]
+```
+
+---
+
+## ✨ Features
 - **Modular Agents** – Scoped logic for detecting wallet activity, contract spawns, and anomalies
 - **Signal Emission** – Structured signals for logging, alerting, or downstream use
 - **Swarm Design** – Each agent operates independently with shared utilities
@@ -68,7 +108,7 @@ Agents independently monitor on-chain events, emit structured signals, and share
 
 ---
 
-## Example Signal
+## 📝 Example Signal
 
 ```ts
 [agent-observer] → fresh funding detected from kraken (wallet: 6Yxk...P2M8) at 04:41:12Z
@@ -90,7 +130,7 @@ Agents independently monitor on-chain events, emit structured signals, and share
 
 ---
 
-## Signal Confidence
+## 📊 Signal Confidence
 Each emitted signal includes a `confidence` score (0–1) based on behavioral heuristics:
 - CEX-origin funding (e.g. Kraken, Coinbase)
 - Time between funding → deploy
@@ -101,7 +141,7 @@ Confidence is computed via agent-side scoring and logged alongside the signal.
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 - **Frontend:** Next.js, Tailwind CSS
 - **Backend:** Node.js (TypeScript-based agent runner)
 - **Language:** TypeScript (typed logic across agents, utils, and infra)
@@ -109,7 +149,7 @@ Confidence is computed via agent-side scoring and logged alongside the signal.
 
 ---
 
-## Quickstart
+## ⚡ Quickstart
 
 1. **Clone the repository**
    ```bash
@@ -134,7 +174,7 @@ Confidence is computed via agent-side scoring and logged alongside the signal.
 
 ---
 
-## Key Folders
+## 📁 Key Folders
 - `/agents` – Agent templates & logic
 - `/utils` – Shared signal/logging utilities
 - `/types` – TypeScript interfaces & definitions
@@ -143,19 +183,19 @@ Confidence is computed via agent-side scoring and logged alongside the signal.
 
 ---
 
-## Contributing
+## 🤝 Contributing
 We welcome contributors! If you’re experienced in TypeScript or agent-based systems, check `/agents/example.ts` and build your own observer. For details, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Designers, artists, or those with ideas fitting the mythos—DM us on Twitter [@EremosCore](https://x.com/EremosCore).
 
 ---
 
-## License
+## 📜 License
 MIT © Eremos
 
 ---
 
-## Links
+## 🔗 Links
 - **Twitter/X:** [@EremosCore](https://x.com/EremosCore)
 - **Website:** [Eremos.io](https://www.eremos.io/)
 - **Whitepaper:** [v1.0 PDF](docs/whitepaper.pdf)
