@@ -14,19 +14,19 @@
 ---
 
 ## 📚 Table of Contents
-- [Project Overview](#project-overview)
-- [Architecture](#architecture)
-- [Swarm Agents](#swarm-agents)
-- [Signal Flow](#signal-flow)
-- [Features](#features)
-- [Example Signal](#example-signal)
-- [Signal Confidence](#signal-confidence)
-- [Tech Stack](#tech-stack)
-- [Quickstart](#quickstart)
-- [Key Folders](#key-folders)
-- [Contributing](#contributing)
-- [License](#license)
-- [Links](#links)
+- [🚀 Project Overview](#-project-overview)
+- [🏗️ Architecture](#️-architecture)
+- [🤖 Swarm Agents](#-swarm-agents)
+- [🔄 Signal Flow](#-signal-flow)
+- [✨ Features](#-features)
+- [📝 Example Signal](#-example-signal)
+- [📊 Signal Confidence](#-signal-confidence)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [⚡ Quickstart](#-quickstart)
+- [📁 Key Folders](#-key-folders)
+- [🤝 Contributing](#-contributing)
+- [📜 License](#-license)
+- [🔗 Links](#-links)
 
 ---
 
