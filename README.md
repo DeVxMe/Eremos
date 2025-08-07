@@ -110,28 +110,30 @@ flowchart LR
 
 ## 📝 Example Signal
 
-```ts
 [agent-observer] → fresh funding detected from kraken (wallet: 6Yxk...P2M8) at 04:41:12Z
 [agent-observer] → contract probing detected within 4s (pump.fun interaction traced)
 [agent-observer] → token created at 04:41:17Z (tx: 5gW...pump)
 [agent-observer] → 5 bundle-linked wallets interacted within 8s of deploy
 [agent-observer] → launch confidence spike (0.91) - emitting signal (elapsed: 13s)
 
+```json
 {
-  agent: "Observer",
-  type: "launch_detected",
-  glyph: "Δ",
-  hash: "sig_c7f9a3d2bc",
-  timestamp: "2025-06-12T04:41:25Z",
-  source: "agent-observer",
-  confidence: 0.91
+  "agent": "Observer",
+  "type": "launch_detected",
+  "glyph": "Δ",
+  "hash": "sig_c7f9a3d2bc",
+  "timestamp": "2025-06-12T04:41:25Z",
+  "source": "agent-observer",
+  "confidence": 0.91
 }
 ```
 
 ---
 
 ## 📊 Signal Confidence
+
 Each emitted signal includes a `confidence` score (0–1) based on behavioral heuristics:
+
 - CEX-origin funding (e.g. Kraken, Coinbase)
 - Time between funding → deploy
 - Wallet linkage density (bundled activity)
@@ -142,9 +144,11 @@ Confidence is computed via agent-side scoring and logged alongside the signal.
 ---
 
 ## 🛠️ Tech Stack
-- **Frontend:** Next.js, Tailwind CSS
-- **Backend:** Node.js (TypeScript-based agent runner)
+
 - **Language:** TypeScript (typed logic across agents, utils, and infra)
+- **Runtime:** Node.js (TypeScript-based agent runner)
+- **Testing:** Jest with TypeScript support
+- **Linting:** ESLint with Prettier formatting
 - **Chain Layer:** RPC watchers, mempool filters, native triggers
 
 ---
@@ -172,6 +176,31 @@ Confidence is computed via agent-side scoring and logged alongside the signal.
    # Or run a specific agent script if available
    ```
 
+## Development
+
+```bash
+# Run tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Lint code
+npm run lint
+
+# Format code
+npm run format
+
+# Build the project
+npm run build
+
+# Validate agents
+npm run validate
+
+# Generate new agent
+npm run generate:agent
+```
+
 ---
 
 ## 📁 Key Folders
@@ -184,7 +213,28 @@ Confidence is computed via agent-side scoring and logged alongside the signal.
 ---
 
 ## 🤝 Contributing
-We welcome contributors! If you’re experienced in TypeScript or agent-based systems, check `/agents/example.ts` and build your own observer. For details, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+We welcome contributors! If you're experienced in TypeScript or agent-based systems, check `/agents/example.ts` and build your own observer. For details, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+We're open to contributors! Here's how to get started:
+
+1. **Fork the repository**
+2. **Set up your development environment:**
+   ```bash
+   npm install
+   cp env.example .env.local
+   npm run lint
+   npm test
+   ```
+3. **Create a new agent or improve existing ones**
+4. **Follow our coding standards:**
+   - Run `npm run lint` before committing
+   - Add tests for new functionality
+   - Use TypeScript for all new code
+5. **Submit a pull request**
+
+If you're experienced in TypeScript and like agent-based systems, check `agents/example.ts` and build your own observer.
+If you're a designer, artist, or just have ideas that fit the mythos - send us a DM on Twitter. [@EremosCore](https://x.com/EremosCore)
 
 Designers, artists, or those with ideas fitting the mythos—DM us on Twitter [@EremosCore](https://x.com/EremosCore).
 
